@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-24.04
     container:
       image: debian:bookworm-slim
+      options: --privileged
     timeout-minutes: 360
 
     steps:

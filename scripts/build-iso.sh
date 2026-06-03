@@ -55,6 +55,7 @@ build_iso() {
 
     # Initialize live-build configuration
     lb config \
+        --parent-distribution "$CODENAME" \
         --distribution "$CODENAME" \
         --architectures "$ARCH" \
         --archive-areas "main contrib non-free" \
