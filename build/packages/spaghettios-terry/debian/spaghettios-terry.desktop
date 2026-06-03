@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Terry Davis
+Comment=A tribute to the creator of TempleOS
+Exec=terrydavis
+Icon=applications-other
+Categories=Utility;
+StartupNotify=true

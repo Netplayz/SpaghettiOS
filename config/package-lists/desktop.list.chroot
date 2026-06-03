@@ -1,5 +1,7 @@
 # SpaghettiOS Desktop Packages
 task-gnome-desktop
+spaghettios-paint
+spaghettios-terry
 gdm3
 firefox-esr
 libreoffice

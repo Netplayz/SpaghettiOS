@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=SpaghettiPaint
+Comment=Simple drawing application
+Exec=spaghettipaint
+Icon=applications-graphics
+Categories=Graphics;2DGraphics;
+StartupNotify=true

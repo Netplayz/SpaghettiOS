@@ -1,0 +1,16 @@
+Source: spaghettios-terry
+Section: misc
+Priority: optional
+Maintainer: SpaghettiOS Developers <devel@spaghettios.example.com>
+Build-Depends: debhelper-compat (= 13),
+               libgtk-3-dev,
+               pkg-config
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: spaghettios-terry
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A tribute to Terry Davis, creator of TempleOS
+ Displays a photo of Terry Davis with quotes and information
+ about his life and work on TempleOS.

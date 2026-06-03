@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	# no configure needed
+
+override_dh_auto_build:
+	gcc -o src/spaghettipaint src/main.c \
+	    $(pkg-config --cflags --libs gtk+-3.0) \
+	    -Wall -Wextra -O2
+
+override_dh_auto_install:
+	mkdir -p $(CURDIR)/debian/spaghettios-paint/usr/bin
+	cp src/spaghettipaint $(CURDIR)/debian/spaghettios-paint/usr/bin/
+	mkdir -p $(CURDIR)/debian/spaghettios-paint/usr/share/applications
+	cp debian/spaghettios-paint.desktop $(CURDIR)/debian/spaghettios-paint/usr/share/applications/
+
+override_dh_auto_test:
+	# no tests

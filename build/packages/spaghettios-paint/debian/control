@@ -1,0 +1,17 @@
+Source: spaghettios-paint
+Section: graphics
+Priority: optional
+Maintainer: SpaghettiOS Developers <devel@spaghettios.example.com>
+Build-Depends: debhelper-compat (= 13),
+               libgtk-3-dev,
+               libcairo2-dev,
+               pkg-config
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: spaghettios-paint
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: SpaghettiPaint — a simple drawing application
+ A minimal paint program for SpaghettiOS with brush size selection,
+ color picking, and PNG export. Built with GTK3 and Cairo.
