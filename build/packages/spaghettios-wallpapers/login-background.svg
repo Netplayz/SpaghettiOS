@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a0000"/>
+      <stop offset="60%" stop-color="#8B0000"/>
+      <stop offset="100%" stop-color="#4A0000"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <g opacity="0.08">
+    <path d="M0,300 Q400,100 800,300 T1600,200 T1920,400" stroke="#FFD700" stroke-width="3" fill="none"/>
+    <path d="M0,600 Q300,800 700,600 T1500,800 T1920,700" stroke="#F5DEB3" stroke-width="2" fill="none"/>
+    <path d="M0,900 Q600,700 1200,900" stroke="#FFD700" stroke-width="3" fill="none"/>
+  </g>
+  <text x="960" y="500" text-anchor="middle" fill="#F5DEB3" font-family="serif" font-size="56" font-weight="bold">SpaghettiOS</text>
+  <text x="960" y="550" text-anchor="middle" fill="#FFD700" font-family="serif" font-size="18" font-style="italic">1.0 (Al Dente)</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a0000"/>
+      <stop offset="100%" stop-color="#8B0000"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <g opacity="0.1">
+    <path d="M0,200 Q400,50 800,250 T1600,150 T1920,300" stroke="#F5DEB3" stroke-width="4" fill="none"/>
+    <path d="M0,500 Q300,700 700,500 T1500,700 T1920,600" stroke="#FFD700" stroke-width="3" fill="none"/>
+    <path d="M0,800 Q500,900 1000,700 T1800,900" stroke="#F5DEB3" stroke-width="4" fill="none"/>
+  </g>
+  <text x="960" y="540" text-anchor="middle" fill="#F5DEB3" font-family="serif" font-size="72" font-weight="bold">SpaghettiOS</text>
+  <text x="960" y="590" text-anchor="middle" fill="#FFD700" font-family="serif" font-size="24">Press ESC for boot menu</text>
+</svg>

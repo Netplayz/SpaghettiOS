@@ -37,6 +37,11 @@ log_info()  { echo -e "${GREEN}[INFO]${NC}  $*"; }
 log_warn()  { echo -e "${YELLOW}[WARN]${NC}  $*"; }
 log_error() { echo -e "${RED}[ERROR]${NC} $*"; }
 
+SUDO=""
+if [ "$(id -u)" -ne 0 ]; then
+    SUDO="sudo"
+fi
+
 cleanup() {
     log_info "Cleaning up previous build..."
     rm -rf "$LB_DIR"
@@ -52,7 +57,6 @@ build_iso() {
     lb config \
         --distribution "$CODENAME" \
         --architectures "$ARCH" \
-
         --archive-areas "main contrib non-free" \
         --debian-installer false \
         --bootappend-live "boot=live components quiet splash hostname=spaghettios" \
@@ -78,20 +82,26 @@ EOF
 
     # Copy custom package lists
     log_info "Copying package lists..."
-    cp -r "$PROJECT_DIR/config/package-lists/"* "$LB_DIR/config/package-lists/" 2>/dev/null || true
+    if [ -d "$PROJECT_DIR/config/package-lists" ]; then
+        cp -r "$PROJECT_DIR/config/package-lists/"* "$LB_DIR/config/package-lists/" 2>/dev/null || true
+    fi
 
     # Copy custom hooks
     log_info "Copying hooks..."
-    cp -r "$PROJECT_DIR/config/hooks/"* "$LB_DIR/config/hooks/" 2>/dev/null || true
-    chmod +x "$LB_DIR/config/hooks/"* 2>/dev/null || true
+    if [ -d "$PROJECT_DIR/config/hooks" ]; then
+        cp -r "$PROJECT_DIR/config/hooks/"* "$LB_DIR/config/hooks/" 2>/dev/null || true
+        chmod +x "$LB_DIR/config/hooks/"* 2>/dev/null || true
+    fi
 
     # Copy archive configs
     log_info "Copying archive configs..."
-    cp -r "$PROJECT_DIR/config/archives/"* "$LB_DIR/config/archives/" 2>/dev/null || true
+    if [ -d "$PROJECT_DIR/config/archives" ]; then
+        cp -r "$PROJECT_DIR/config/archives/"* "$LB_DIR/config/archives/" 2>/dev/null || true
+    fi
 
     # Build the ISO
     log_info "Running live-build (this will take a while)..."
-    sudo lb build 2>&1 | tee "$BUILD_DIR/build.log"
+    $SUDO lb build 2>&1 | tee "$BUILD_DIR/build.log"
 
     # Rename the resulting ISO
     if [ -f "$LB_DIR/live-image-${ARCH}.hybrid.iso" ]; then

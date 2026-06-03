@@ -17,7 +17,7 @@ echo "spaghettios" > /etc/hostname
 # Set GRUB theme
 if [ -f /etc/default/grub ]; then
     sed -i 's|^#\?GRUB_THEME=.*|GRUB_THEME="/usr/share/grub/themes/spaghettios/theme.txt"|' /etc/default/grub
-    sed -i 's|^#\?GRUB_BACKGROUND=.*|GRUB_BACKGROUND="/usr/share/backgrounds/spaghettios/grub-background.png"|' /etc/default/grub
+    sed -i 's|^#\?GRUB_BACKGROUND=.*|GRUB_BACKGROUND="/usr/share/backgrounds/spaghettios/grub-background.svg"|' /etc/default/grub
     sed -i 's|^#\?GRUB_TIMEOUT_STYLE=.*|GRUB_TIMEOUT_STYLE=menu|' /etc/default/grub
     sed -i 's|^#\?GRUB_TIMEOUT=.*|GRUB_TIMEOUT=10|' /etc/default/grub
 fi

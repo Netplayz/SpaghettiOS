@@ -11,12 +11,11 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  DEBIAN_FRONTEND: noninteractive
-
 jobs:
   build:
     runs-on: ubuntu-24.04
+    container:
+      image: debian:bookworm-slim
     timeout-minutes: 360
 
     steps:
@@ -25,8 +24,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq \
+          apt-get update -qq
+          apt-get install -y -qq \
             live-build \
             debootstrap \
             debian-archive-keyring \
@@ -35,15 +34,14 @@ jobs:
             syslinux-utils \
             grub-pc-bin \
             grub-efi-amd64-bin \
-            grub-efi-ia32-bin \
             mtools \
             squashfs-tools \
             cpio \
-            make
+            make \
+            ca-certificates
 
       - name: Build ISO
-        run: |
-          sudo bash scripts/build-iso.sh
+        run: bash scripts/build-iso.sh
         env:
           DEBIAN_FRONTEND: noninteractive
 
