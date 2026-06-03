@@ -3,12 +3,17 @@
 
 set -e
 
-REPO_URL="https://packages.spaghettios.example.com"
+REPO_URL="http://mousecorp.xyz:8080/spaghettios/repo"
 REPO_KEY="/usr/share/keyrings/spaghettos-archive-keyring.gpg"
 
 cat > /etc/apt/sources.list.d/spaghettios.list << EOF
-deb [signed-by=${REPO_KEY}] ${REPO_URL} al-dente main contrib non-free
-deb-src [signed-by=${REPO_KEY}] ${REPO_URL} al-dente main contrib non-free
+deb [signed-by=${REPO_KEY}] ${REPO_URL} al-dente main
+deb-src [signed-by=${REPO_KEY}] ${REPO_URL} al-dente main
 EOF
+
+# Import the SpaghettiOS archive key
+if [ -f /usr/share/keyrings/spaghettos-archive-keyring.gpg ]; then
+    apt-key add /usr/share/keyrings/spaghettos-archive-keyring.gpg 2>/dev/null || true
+fi
 
 apt-get update

@@ -58,11 +58,13 @@ debootstrap --variant="$VARIANT" --arch=amd64 \
 # Set up SpaghettiOS repository
 log_info "Configuring SpaghettiOS repository..."
 mkdir -p "$TARGET/usr/share/keyrings"
-# Note: Copy the actual GPG key here once generated
-# cp /path/to/spaghettos-archive-keyring.gpg "$TARGET/usr/share/keyrings/"
+if [ -f "$PROJECT_DIR/build/packages/spaghettios-release/key.asc" ]; then
+    cp "$PROJECT_DIR/build/packages/spaghettios-release/key.asc" \
+       "$TARGET/usr/share/keyrings/spaghettos-archive-keyring.gpg"
+fi
 
 cat > "$TARGET/etc/apt/sources.list.d/spaghettios.list" << APTEOF
-deb [signed-by=/usr/share/keyrings/spaghettos-archive-keyring.gpg] https://packages.spaghettios.example.com al-dente main contrib non-free
+deb [signed-by=/usr/share/keyrings/spaghettos-archive-keyring.gpg] http://mousecorp.xyz:8080/spaghettios/repo al-dente main
 APTEOF
 
 # Create os-release
