@@ -52,7 +52,7 @@ build_iso() {
     lb config \
         --distribution "$CODENAME" \
         --architectures "$ARCH" \
-        --linux-flavours "amd64" \
+
         --archive-areas "main contrib non-free" \
         --debian-installer false \
         --bootappend-live "boot=live components quiet splash hostname=spaghettios" \
