@@ -1,0 +1,21 @@
+#!/bin/bash
+# SpaghettiOS: Clean up the live system
+
+set -e
+
+# Remove apt cache
+apt-get clean
+rm -rf /var/lib/apt/lists/*
+
+# Remove temporary files
+rm -rf /tmp/* /var/tmp/*
+
+# Remove SSH host keys (regenerated on first boot)
+rm -f /etc/ssh/ssh_host_*
+
+# Remove machine ID (regenerated on first boot)
+rm -f /etc/machine-id
+touch /etc/machine-id
+
+# Clean logs
+find /var/log -type f -name '*.log' -delete

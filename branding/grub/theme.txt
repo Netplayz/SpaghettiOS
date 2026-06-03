@@ -1,0 +1,38 @@
+# SpaghettiOS GRUB Theme
+title-text: "SpaghettiOS"
+title-color: "#F5DEB3"
+title-font: "DejaVu Sans Bold 24"
+desktop-image: "background.png"
+desktop-color: "#8B0000"
+terminal-font: "DejaVu Sans Mono 12"
+terminal-box: "terminal_box_*.png"
+
++ boot_menu {
+    left = 25%
+    top = 25%
+    width = 50%
+    height = 50%
+    item_color = "#F5DEB3"
+    selected_item_color = "#FFD700"
+    item_height = 36
+    item_padding = 8
+    item_spacing = 4
+    item_font = "DejaVu Sans 14"
+    selected_item_font = "DejaVu Sans Bold 14"
+    selected_item_pixmap_style = "select_*.png"
+    scrollbar = true
+    scrollbar_width = 12
+}
+
++ progress_bar {
+    id = "__timeout__"
+    left = 25%
+    top = 80%
+    width = 50%
+    height = 24
+    font_color = "#F5DEB3"
+    text_color = "#F5DEB3"
+    bar_color = "#FFD700"
+    bar_bg_color = "#4A0000"
+    bar_height = 16
+}

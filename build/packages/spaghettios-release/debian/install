@@ -1,0 +1,4 @@
+os-release		/usr/lib/
+issue			/etc/
+issue.net		/etc/
+spaghettios.list	/etc/apt/sources.list.d/

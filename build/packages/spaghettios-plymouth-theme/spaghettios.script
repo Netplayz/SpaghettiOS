@@ -1,0 +1,34 @@
+/* SpaghettiOS Plymouth Boot Splash */
+
+wallpaper = Image("wallpaper.png");
+sprite = Sprite();
+sprite.SetImage(wallpaper);
+
+logo = Image("logo.png");
+logo_sprite = Sprite();
+logo_sprite.SetImage(logo);
+logo_sprite.SetPosition(Window.GetWidth() / 2 - logo.GetWidth() / 2,
+                        Window.GetHeight() / 3 - logo.GetHeight() / 2,
+                        100);
+
+message = new Label("SpaghettiOS");
+message.SetColor(1.0, 0.87, 0.70, 1.0);
+message.SetFontName("DejaVu Sans Bold");
+message.SetFontSize(28);
+message.SetPosition(Window.GetWidth() / 2 - 80,
+                    Window.GetHeight() / 2,
+                    100);
+
+progress_bar = new ProgressBar();
+progress_bar.SetPosition(Window.GetWidth() / 2 - 150,
+                         Window.GetHeight() * 2 / 3,
+                         300, 20);
+progress_bar.SetBarColor(1.0, 0.84, 0.0, 1.0);
+progress_bar.SetBackgroundColor(0.29, 0.0, 0.0, 1.0);
+
+fun refresh_callback ()
+{
+    progress_bar.SetProgress(Progress);
+}
+
+Plymouth.SetRefreshFunction(refresh_callback);

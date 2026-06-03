@@ -1,0 +1,57 @@
+/* SpaghettiOS GDM / GNOME Login Screen Theme */
+
+@define-color spaghetti_red #8B0000;
+@define-color spaghetti_gold #FFD700;
+@define-color spaghetti_cream #F5DEB3;
+@define-color spaghetti_bg #1a0000;
+
+lockDialogGroup {
+    background: linear-gradient(180deg, @spaghetti_bg 0%, @spaghetti_red 100%);
+}
+
+.login-dialog-title {
+    color: @spaghetti_cream;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.login-dialog-button-box {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.login-dialog-user-list-item-label {
+    color: @spaghetti_cream;
+}
+
+.login-dialog-user-list-item:focus .login-dialog-user-list-item-label,
+.login-dialog-user-list-item:hover .login-dialog-user-list-item-label {
+    color: @spaghetti_gold;
+}
+
+.login-dialog-prompt-entry {
+    color: @spaghetti_cream;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid @spaghetti_gold;
+    border-radius: 6px;
+}
+
+.login-dialog-prompt-label {
+    color: @spaghetti_cream;
+}
+
+.button {
+    color: @spaghetti_cream;
+    background-color: @spaghetti_red;
+    border: 1px solid @spaghetti_gold;
+    border-radius: 6px;
+}
+
+.button:hover {
+    background-color: #A00000;
+}
+
+.button:active {
+    background-color: #6B0000;
+}

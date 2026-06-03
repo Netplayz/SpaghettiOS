@@ -1,0 +1,14 @@
+Source: spaghettios-release
+Section: misc
+Priority: optional
+Maintainer: SpaghettiOS Developers <devel@spaghettios.example.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: spaghettios-release
+Architecture: all
+Depends: ${misc:Depends}, base-files
+Description: SpaghettiOS release file and APT sources
+ This package provides /etc/os-release, /etc/issue, and APT
+ source list for the SpaghettiOS distribution.

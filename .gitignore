@@ -1,0 +1,23 @@
+# Build artifacts
+build/iso/*.iso
+build/iso/live-build/
+build/iso/build.log
+build/repo/
+build/packages/*/*.deb
+build/packages/*/*.ddeb
+build/packages/*/*.build*
+build/packages/*/*.changes
+
+# Debian package build artifacts
+build/packages/*/debian/.debhelper/
+build/packages/*/debian/debhelper-build-stamp
+build/packages/*/debian/files
+build/packages/*/debian/*.log
+build/packages/*/debian/*.substvars
+build/packages/*/debian/*.debhelper
+
+# OS artifacts
+*.swp
+*.swo
+*~
+.DS_Store

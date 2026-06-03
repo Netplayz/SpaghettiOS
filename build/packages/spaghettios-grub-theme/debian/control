@@ -1,0 +1,14 @@
+Source: spaghettios-grub-theme
+Section: misc
+Priority: optional
+Maintainer: SpaghettiOS Developers <devel@spaghettios.example.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: spaghettios-grub-theme
+Architecture: all
+Depends: ${misc:Depends}, grub2-common
+Description: SpaghettiOS GRUB bootloader theme
+ A pasta-themed GRUB boot menu theme for SpaghettiOS.
+ Features a warm red-and-gold color scheme with spaghetti motifs.

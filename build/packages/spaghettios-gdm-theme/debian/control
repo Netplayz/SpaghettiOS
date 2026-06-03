@@ -1,0 +1,14 @@
+Source: spaghettios-gdm-theme
+Section: misc
+Priority: optional
+Maintainer: SpaghettiOS Developers <devel@spaghettios.example.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: spaghettios-gdm-theme
+Architecture: all
+Depends: ${misc:Depends}
+Description: SpaghettiOS GDM/login screen theme
+ CSS theme and configuration for the GNOME Display Manager
+ login screen, themed with SpaghettiOS colors.

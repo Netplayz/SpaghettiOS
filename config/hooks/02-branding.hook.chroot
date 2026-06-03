@@ -1,0 +1,23 @@
+#!/bin/bash
+# SpaghettiOS: Apply system-wide branding
+
+set -e
+
+# Copy os-release
+cp /etc/os-release /etc/os-release.bak 2>/dev/null || true
+cp /usr/share/spaghettios/os-release /etc/os-release
+
+# Copy issue files
+cp /usr/share/spaghettios/issue /etc/issue
+cp /usr/share/spaghettios/issue.net /etc/issue.net
+
+# Set hostname
+echo "spaghettios" > /etc/hostname
+
+# Set GRUB theme
+if [ -f /etc/default/grub ]; then
+    sed -i 's|^#\?GRUB_THEME=.*|GRUB_THEME="/usr/share/grub/themes/spaghettios/theme.txt"|' /etc/default/grub
+    sed -i 's|^#\?GRUB_BACKGROUND=.*|GRUB_BACKGROUND="/usr/share/backgrounds/spaghettios/grub-background.png"|' /etc/default/grub
+    sed -i 's|^#\?GRUB_TIMEOUT_STYLE=.*|GRUB_TIMEOUT_STYLE=menu|' /etc/default/grub
+    sed -i 's|^#\?GRUB_TIMEOUT=.*|GRUB_TIMEOUT=10|' /etc/default/grub
+fi

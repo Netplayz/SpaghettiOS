@@ -1,0 +1,15 @@
+Source: spaghettios-plymouth-theme
+Section: misc
+Priority: optional
+Maintainer: SpaghettiOS Developers <devel@spaghettios.example.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: spaghettios-plymouth-theme
+Architecture: all
+Depends: ${misc:Depends}, plymouth, plymouth-label, plymouth-themes
+Provides: plymouth-theme
+Description: SpaghettiOS Plymouth boot splash theme
+ A spaghetti-themed Plymouth boot splash for SpaghettiOS.
+ Features the SpaghettiOS logo with a progress bar.

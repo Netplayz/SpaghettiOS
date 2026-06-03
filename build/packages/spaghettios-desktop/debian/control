@@ -1,0 +1,30 @@
+Source: spaghettios-desktop
+Section: misc
+Priority: optional
+Maintainer: SpaghettiOS Developers <devel@spaghettios.example.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: spaghettios-desktop
+Architecture: all
+Depends: ${misc:Depends},
+         spaghettios-base,
+         spaghettios-release,
+         spaghettios-wallpapers,
+         spaghettios-grub-theme,
+         spaghettios-plymouth-theme,
+         spaghettios-gdm-theme,
+         task-desktop,
+         task-gnome-desktop,
+         firefox-esr,
+         libreoffice,
+         gimp,
+         inkscape,
+         vlc,
+         rhythmbox,
+         gnome-tweaks
+Description: SpaghettiOS desktop environment
+ This metapackage installs the full SpaghettiOS desktop
+ experience, including the GNOME desktop environment and
+ all SpaghettiOS branding packages.

@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=SpaghettiOS
+Description=SpaghettiOS Boot Splash
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/spaghettios
+ScriptFile=/usr/share/plymouth/themes/spaghettios/spaghettios.script

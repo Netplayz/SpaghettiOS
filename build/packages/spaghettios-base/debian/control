@@ -1,0 +1,56 @@
+Source: spaghettios-base
+Section: misc
+Priority: optional
+Maintainer: SpaghettiOS Developers <devel@spaghettios.example.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: spaghettios-base
+Architecture: all
+Depends: ${misc:Depends},
+         linux-image-amd64,
+         systemd,
+         systemd-sysv,
+         udev,
+         dbus,
+         sudo,
+         adduser,
+         apt,
+         bash,
+         ca-certificates,
+         coreutils,
+         curl,
+         dosfstools,
+         e2fsprogs,
+         file,
+         findutils,
+         gawk,
+         git,
+         gnupg,
+         grep,
+         gzip,
+         htop,
+         init,
+         iproute2,
+         iptables,
+         less,
+         locales,
+         nano,
+         openssh-client,
+         openssh-server,
+         parted,
+         pciutils,
+         procps,
+         rsync,
+         sed,
+         tar,
+         usbutils,
+         vim,
+         wget,
+         xz-utils,
+         zip
+Description: SpaghettiOS base system
+ This metapackage depends on all core packages that make up a
+ minimal SpaghettiOS installation. It ensures essential system
+ components are present.

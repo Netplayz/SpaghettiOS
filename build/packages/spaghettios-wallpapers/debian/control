@@ -1,0 +1,15 @@
+Source: spaghettios-wallpapers
+Section: misc
+Priority: optional
+Maintainer: SpaghettiOS Developers <devel@spaghettios.example.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: spaghettios-wallpapers
+Architecture: all
+Depends: ${misc:Depends}
+Description: SpaghettiOS desktop wallpapers
+ A collection of spaghetti-themed desktop wallpapers for
+ SpaghettiOS, including backgrounds for GRUB, Plymouth,
+ the desktop, and the login screen.

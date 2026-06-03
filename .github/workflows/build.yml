@@ -1,0 +1,56 @@
+name: SpaghettiOS
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DEBIAN_FRONTEND: noninteractive
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq \
+            live-build \
+            debootstrap \
+            xorriso \
+            isolinux \
+            syslinux-utils \
+            grub-pc-bin \
+            grub-efi-amd64-bin \
+            grub-efi-ia32-bin \
+            mtools \
+            squashfs-tools \
+            cpio \
+            make
+
+      - name: Build ISO
+        run: |
+          sudo bash scripts/build-iso.sh
+        env:
+          DEBIAN_FRONTEND: noninteractive
+
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
+        with:
+          name: SpaghettiOS-amd64
+          path: build/iso/SpaghettiOS-*.iso
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0

@@ -1,0 +1,14 @@
+#!/bin/bash
+# SpaghettiOS: Add custom repository to the live system
+
+set -e
+
+REPO_URL="https://packages.spaghettios.example.com"
+REPO_KEY="/usr/share/keyrings/spaghettos-archive-keyring.gpg"
+
+cat > /etc/apt/sources.list.d/spaghettios.list << EOF
+deb [signed-by=${REPO_KEY}] ${REPO_URL} al-dente main contrib non-free
+deb-src [signed-by=${REPO_KEY}] ${REPO_URL} al-dente main contrib non-free
+EOF
+
+apt-get update

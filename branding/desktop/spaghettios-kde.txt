@@ -1,0 +1,18 @@
+# SpaghettiOS Plasma Theme Notes
+
+## Colors
+- Background: #1a0000 (Deep dark red)
+- Foreground: #F5DEB3 (Wheat/cream)
+- Accent: #FFD700 (Gold)
+- Selection: #8B0000 (Dark red)
+
+## Theme locations
+- Plasma theme: /usr/share/plasma/desktoptheme/spaghettios
+- Color scheme: /usr/share/color-schemes/SpaghettiOS.colors
+- Icon theme: /usr/share/icons/SpaghettiOS
+- Cursor theme: /usr/share/icons/SpaghettiOS-Cursors
+- Aurorae theme: /usr/share/aurorae/themes/SpaghettiOS
+- SDDM theme: /usr/share/sddm/themes/SpaghettiOS
+
+## Recommended icon sets
+Base on Papirus or Tela icons, recolored with the SpaghettiOS palette.
