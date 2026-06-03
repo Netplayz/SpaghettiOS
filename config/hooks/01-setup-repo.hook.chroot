@@ -3,7 +3,7 @@
 
 set -e
 
-REPO_URL="http://mousecorp.xyz:8080/spaghettios/repo"
+REPO_URL="http://mousecorp.xyz/spaghettios/repo"
 REPO_KEY="/usr/share/keyrings/spaghettos-archive-keyring.gpg"
 
 cat > /etc/apt/sources.list.d/spaghettios.list << EOF

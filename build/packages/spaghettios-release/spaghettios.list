@@ -1,2 +1,2 @@
-deb [signed-by=/usr/share/keyrings/spaghettos-archive-keyring.gpg] http://mousecorp.xyz:8080/spaghettios/repo al-dente main
-deb-src [signed-by=/usr/share/keyrings/spaghettos-archive-keyring.gpg] http://mousecorp.xyz:8080/spaghettios/repo al-dente main
+deb [signed-by=/usr/share/keyrings/spaghettos-archive-keyring.gpg] http://mousecorp.xyz/spaghettios/repo al-dente main
+deb-src [signed-by=/usr/share/keyrings/spaghettos-archive-keyring.gpg] http://mousecorp.xyz/spaghettios/repo al-dente main

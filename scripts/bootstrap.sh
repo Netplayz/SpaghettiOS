@@ -64,7 +64,7 @@ if [ -f "$PROJECT_DIR/build/packages/spaghettios-release/key.asc" ]; then
 fi
 
 cat > "$TARGET/etc/apt/sources.list.d/spaghettios.list" << APTEOF
-deb [signed-by=/usr/share/keyrings/spaghettos-archive-keyring.gpg] http://mousecorp.xyz:8080/spaghettios/repo al-dente main
+deb [signed-by=/usr/share/keyrings/spaghettos-archive-keyring.gpg] http://mousecorp.xyz/spaghettios/repo al-dente main
 APTEOF
 
 # Create os-release
