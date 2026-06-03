@@ -104,14 +104,15 @@ EOF
     log_info "Running live-build (this will take a while)..."
     $SUDO lb build 2>&1 | tee "$BUILD_DIR/build.log"
 
-    # Rename the resulting ISO
-    if [ -f "$LB_DIR/live-image-${ARCH}.hybrid.iso" ]; then
-        mv "$LB_DIR/live-image-${ARCH}.hybrid.iso" \
-           "$BUILD_DIR/${DISTRO}-${VERSION}-${ARCH}.iso"
+    # Locate and rename the resulting ISO
+    ISO_FILE=$(find "$LB_DIR" -maxdepth 1 -name "*.iso" -type f 2>/dev/null | head -1)
+    if [ -n "$ISO_FILE" ]; then
+        mv "$ISO_FILE" "$BUILD_DIR/${DISTRO}-${VERSION}-${ARCH}.iso"
         log_info "ISO built successfully:"
         log_info "  $BUILD_DIR/${DISTRO}-${VERSION}-${ARCH}.iso"
     else
-        log_error "ISO build failed. Check $BUILD_DIR/build.log for details."
+        log_error "ISO not found in $LB_DIR. Check $BUILD_DIR/build.log for details."
+        ls -la "$LB_DIR" || true
         exit 1
     fi
 }
