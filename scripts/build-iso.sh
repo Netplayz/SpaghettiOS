@@ -53,15 +53,20 @@ build_iso() {
         --linux-flavours "amd64" \
         --archive-areas "main contrib non-free" \
         --debian-installer false \
-        --bootappend-live "boot=live components quiet splash" \
+        --bootappend-live "boot=live components quiet splash hostname=spaghettios" \
         --iso-application "${DISTRO} ${VERSION}" \
         --iso-preparer "${DISTRO} Developers" \
         --iso-publisher "${DISTRO} Developers" \
         --iso-volume "${DISTRO} ${VERSION}" \
-        --hostname "spaghettios" \
-        --username "user" \
-        --fullname "Spaghetti User" \
         --clean
+
+    # Set hostname and hosts in the live image
+    mkdir -p "$LB_DIR/config/includes.chroot/etc"
+    echo "spaghettios" > "$LB_DIR/config/includes.chroot/etc/hostname"
+    cat > "$LB_DIR/config/includes.chroot/etc/hosts" << 'EOF'
+127.0.0.1	localhost
+127.0.1.1	spaghettios
+EOF
 
     # Copy custom package lists
     log_info "Copying package lists..."
