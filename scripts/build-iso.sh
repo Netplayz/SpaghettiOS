@@ -105,14 +105,17 @@ EOF
     $SUDO lb build 2>&1 | tee "$BUILD_DIR/build.log"
 
     # Locate and rename the resulting ISO
-    ISO_FILE=$(find "$LB_DIR" -maxdepth 1 -name "*.iso" -type f 2>/dev/null | head -1)
+    log_info "Looking for ISO in $BUILD_DIR..."
+    ISO_FILE=$(find "$BUILD_DIR" -maxdepth 2 -name "*.iso" -type f 2>/dev/null | head -1)
     if [ -n "$ISO_FILE" ]; then
+        log_info "Found ISO: $ISO_FILE"
         mv "$ISO_FILE" "$BUILD_DIR/${DISTRO}-${VERSION}-${ARCH}.iso"
         log_info "ISO built successfully:"
         log_info "  $BUILD_DIR/${DISTRO}-${VERSION}-${ARCH}.iso"
     else
-        log_error "ISO not found in $LB_DIR. Check $BUILD_DIR/build.log for details."
-        ls -la "$LB_DIR" || true
+        log_error "ISO not found. Contents of $BUILD_DIR:"
+        ls -laR "$BUILD_DIR" 2>/dev/null || true
+        tail -50 "$BUILD_DIR/build.log" 2>/dev/null || true
         exit 1
     fi
 }
