@@ -1,0 +1,43 @@
+#!/bin/bash
+# SpaghettiOS: Set GNOME as the default desktop
+
+set -e
+
+# Ensure GDM3 is the default display manager
+if [ -f /usr/sbin/gdm3 ]; then
+    echo "gdm3" > /etc/X11/default-display-manager
+fi
+
+# Set GNOME as default session for the live user
+if [ -d /etc/gdm3 ]; then
+    cat > /etc/gdm3/custom.conf << 'EOF'
+[daemon]
+DefaultSession=gnome
+AutomaticLoginEnable=true
+AutomaticLogin=user
+WaylandEnable=true
+
+[security]
+
+[xdmcp]
+
+[chooser]
+
+[debug]
+EOF
+fi
+
+# Create GNOME default session symlink
+if [ -f /usr/share/xsessions/gnome.desktop ]; then
+    mkdir -p /etc/lightdm
+    echo "[Seat:*]" > /etc/lightdm/lightdm.conf
+    echo "user-session=gnome" >> /etc/lightdm/lightdm.conf
+fi
+
+# Set default wallpaper for GNOME
+if command -v gsettings &>/dev/null; then
+    gsettings set org.gnome.desktop.background picture-uri \
+        "file:///usr/share/backgrounds/spaghettios/spaghetti-desktop.svg" 2>/dev/null || true
+    gsettings set org.gnome.desktop.background picture-uri-dark \
+        "file:///usr/share/backgrounds/spaghettios/spaghetti-desktop.svg" 2>/dev/null || true
+fi

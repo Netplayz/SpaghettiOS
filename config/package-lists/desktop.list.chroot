@@ -1,6 +1,6 @@
 # SpaghettiOS Desktop Packages
-task-desktop
 task-gnome-desktop
+gdm3
 firefox-esr
 libreoffice
 thunderbird
