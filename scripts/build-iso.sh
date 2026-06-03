@@ -25,6 +25,8 @@ CODENAME="bookworm"
 DISTRO="SpaghettiOS"
 VERSION="1.0"
 ARCH="amd64"
+MIRROR="http://deb.debian.org/debian"
+MIRROR_SECURITY="http://security.debian.org/debian-security"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -58,6 +60,12 @@ build_iso() {
         --iso-preparer "${DISTRO} Developers" \
         --iso-publisher "${DISTRO} Developers" \
         --iso-volume "${DISTRO} ${VERSION}" \
+        --mirror-bootstrap "$MIRROR" \
+        --mirror-chroot "$MIRROR" \
+        --mirror-chroot-security "$MIRROR_SECURITY" \
+        --mirror-binary "$MIRROR" \
+        --mirror-binary-security "$MIRROR_SECURITY" \
+        --keyring-packages "debian-archive-keyring" \
         --clean
 
     # Set hostname and hosts in the live image
