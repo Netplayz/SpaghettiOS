@@ -19,6 +19,7 @@ linux-headers-amd64
 live-boot
 live-config
 live-config-systemd
+lsb-release
 systemd-sysv
 apt-transport-https
 ca-certificates

@@ -1,9 +1,13 @@
 # SpaghettiOS Desktop Packages
 task-gnome-desktop
+gnome-session
+gnome-shell
 xorg
+xserver-xorg
+lightdm
+lightdm-gtk-greeter
 spaghettios-paint
 spaghettios-terry
-gdm3
 firefox-esr
 libreoffice
 thunderbird

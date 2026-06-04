@@ -1,33 +1,28 @@
 #!/bin/bash
-# SpaghettiOS: Set GNOME as the default desktop
+# SpaghettiOS: Set up desktop environment
 
 set -e
 
-# Ensure GDM3 is the default display manager
-if [ -f /usr/sbin/gdm3 ]; then
-    echo "gdm3" > /etc/X11/default-display-manager
-fi
-
-# Enable gdm3 systemd service
+# Enable lightdm display manager
 if command -v systemctl &>/dev/null; then
-    systemctl enable gdm3 2>/dev/null || true
+    systemctl enable lightdm 2>/dev/null || true
 fi
 
-# Set GNOME as default session for the live user
-if [ -d /etc/gdm3 ]; then
-    cat > /etc/gdm3/custom.conf << 'EOF'
-[daemon]
-DefaultSession=gnome
-AutomaticLoginEnable=true
-AutomaticLogin=user
-WaylandEnable=true
+# Configure lightdm for auto-login
+if [ -d /etc/lightdm ]; then
+    mkdir -p /etc/lightdm/lightdm.conf.d
+    cat > /etc/lightdm/lightdm.conf.d/50-spaghettios.conf << 'LIGHTDM'
+[Seat:*]
+autologin-user=user
+autologin-user-timeout=0
+user-session=gnome
+greeter-show-manual-login=false
+LIGHTDM
+fi
 
-[security]
-
-[xdmcp]
-
-[chooser]
-
-[debug]
-EOF
+# Set GNOME session as default
+if [ -d /usr/share/gnome ]; then
+    mkdir -p /etc/gdm
+    echo "[daemon]" > /etc/gdm/custom.conf
+    echo "DefaultSession=gnome" >> /etc/gdm/custom.conf
 fi

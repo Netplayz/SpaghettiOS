@@ -4,15 +4,23 @@
 set -e
 
 # Copy os-release
-cp /etc/os-release /etc/os-release.bak 2>/dev/null || true
-cp /usr/share/spaghettios/os-release /etc/os-release
+cp /usr/lib/os-release /etc/os-release
 
 # Copy issue files
-cp /usr/share/spaghettios/issue /etc/issue
-cp /usr/share/spaghettios/issue.net /etc/issue.net
+if [ -f /usr/share/spaghettios/issue ]; then
+    cp /usr/share/spaghettios/issue /etc/issue
+else
+    echo "SpaghettiOS" > /etc/issue
+fi
+if [ -f /usr/share/spaghettios/issue.net ]; then
+    cp /usr/share/spaghettios/issue.net /etc/issue.net
+fi
 
-# Set hostname
 echo "spaghettios" > /etc/hostname
+cat > /etc/hosts << 'EOF'
+127.0.0.1	localhost
+127.0.1.1	spaghettios
+EOF
 
 # Set GRUB theme
 if [ -f /etc/default/grub ]; then
