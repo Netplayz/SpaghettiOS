@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 ROOT_DIR := $(CURDIR)
 
-.PHONY: all clean build-iso build-packages repo-init repo-update repo-sign
+.PHONY: all clean build-iso build-packages repo-init repo-update repo-sign publish
 
 all: build-packages repo-update build-iso
 
@@ -37,6 +37,14 @@ repo-update:
 repo-sign:
 	@echo "==> Signing repository..."
 	@bash scripts/manage-repo.sh sign
+
+# ============================================================================
+# Publish
+# ============================================================================
+publish:
+	@echo "==> Publishing to mirror..."
+	@bash scripts/publish.sh
+	@echo "==> Published."
 
 # ============================================================================
 # Cleanup
