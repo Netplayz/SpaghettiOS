@@ -1,15 +1,4 @@
-/* SpaghettiOS Plymouth Boot Splash */
-
-wallpaper = Image("wallpaper.png");
-sprite = Sprite();
-sprite.SetImage(wallpaper);
-
-logo = Image("logo.png");
-logo_sprite = Sprite();
-logo_sprite.SetImage(logo);
-logo_sprite.SetPosition(Window.GetWidth() / 2 - logo.GetWidth() / 2,
-                        Window.GetHeight() / 3 - logo.GetHeight() / 2,
-                        100);
+/* SpaghettiOS Plymouth Boot Splash (text-only, no image assets required) */
 
 message = new Label("SpaghettiOS");
 message.SetColor(1.0, 0.87, 0.70, 1.0);

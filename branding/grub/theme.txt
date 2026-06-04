@@ -1,11 +1,9 @@
-# SpaghettiOS GRUB Theme
+# SpaghettiOS GRUB Theme (color-only, no image assets required)
 title-text: "SpaghettiOS"
 title-color: "#F5DEB3"
 title-font: "DejaVu Sans Bold 24"
-desktop-image: "background.png"
 desktop-color: "#8B0000"
 terminal-font: "DejaVu Sans Mono 12"
-terminal-box: "terminal_box_*.png"
 
 + boot_menu {
     left = 25%
@@ -19,7 +17,6 @@ terminal-box: "terminal_box_*.png"
     item_spacing = 4
     item_font = "DejaVu Sans 14"
     selected_item_font = "DejaVu Sans Bold 14"
-    selected_item_pixmap_style = "select_*.png"
     scrollbar = true
     scrollbar_width = 12
 }

@@ -21,8 +21,6 @@ LIGHTDM
 fi
 
 # Set GNOME session as default
-if [ -d /usr/share/gnome ]; then
-    mkdir -p /etc/gdm
-    echo "[daemon]" > /etc/gdm/custom.conf
-    echo "DefaultSession=gnome" >> /etc/gdm/custom.conf
+if command -v update-alternatives &>/dev/null; then
+    update-alternatives --set x-session-manager /usr/bin/gnome-session 2>/dev/null || true
 fi

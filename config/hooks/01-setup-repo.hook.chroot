@@ -11,9 +11,5 @@ deb [signed-by=${REPO_KEY}] ${REPO_URL} al-dente main
 deb-src [signed-by=${REPO_KEY}] ${REPO_URL} al-dente main
 EOF
 
-# Import the SpaghettiOS archive key
-if [ -f /usr/share/keyrings/spaghettos-archive-keyring.gpg ]; then
-    apt-key add /usr/share/keyrings/spaghettos-archive-keyring.gpg 2>/dev/null || true
-fi
-
+# Ensure the key is trusted (the .list already uses signed-by)
 apt-get update

@@ -6,5 +6,4 @@ VERSION_CODENAME=al-dente
 ID=spaghettios
 ID_LIKE=debian
 HOME_URL=""
-LOGO=spaghettios-logo
 ANSI_COLOR="1;33"

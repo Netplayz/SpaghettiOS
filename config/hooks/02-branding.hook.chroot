@@ -6,15 +6,8 @@ set -e
 # Copy os-release
 cp /usr/lib/os-release /etc/os-release
 
-# Copy issue files
-if [ -f /usr/share/spaghettios/issue ]; then
-    cp /usr/share/spaghettios/issue /etc/issue
-else
-    echo "SpaghettiOS" > /etc/issue
-fi
-if [ -f /usr/share/spaghettios/issue.net ]; then
-    cp /usr/share/spaghettios/issue.net /etc/issue.net
-fi
+# Copy issue files (installed by spaghettios-release to /etc/ already)
+# No action needed - spaghettios-release package installs them directly
 
 echo "spaghettios" > /etc/hostname
 cat > /etc/hosts << 'EOF'
@@ -25,7 +18,6 @@ EOF
 # Set GRUB theme
 if [ -f /etc/default/grub ]; then
     sed -i 's|^#\?GRUB_THEME=.*|GRUB_THEME="/usr/share/grub/themes/spaghettios/theme.txt"|' /etc/default/grub
-    sed -i 's|^#\?GRUB_BACKGROUND=.*|GRUB_BACKGROUND="/usr/share/backgrounds/spaghettios/grub-background.svg"|' /etc/default/grub
     sed -i 's|^#\?GRUB_TIMEOUT_STYLE=.*|GRUB_TIMEOUT_STYLE=menu|' /etc/default/grub
     sed -i 's|^#\?GRUB_TIMEOUT=.*|GRUB_TIMEOUT=10|' /etc/default/grub
 fi

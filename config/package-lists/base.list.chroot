@@ -4,12 +4,11 @@ spaghettios-release
 spaghettios-grub-theme
 spaghettios-plymouth-theme
 spaghettios-wallpapers
-spaghettios-gdm-theme
 firmware-linux
 firmware-linux-free
 firmware-linux-nonfree
 amd64-microcode
-intel-microdata
+intel-microcode
 grub-pc
 grub-efi-amd64
 grub-efi-ia32

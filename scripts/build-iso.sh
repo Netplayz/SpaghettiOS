@@ -55,10 +55,9 @@ build_iso() {
 
     # Initialize live-build configuration
     lb config \
-        --parent-distribution "$CODENAME" \
         --distribution "$CODENAME" \
         --architectures "$ARCH" \
-        --archive-areas "main contrib non-free" \
+        --archive-areas "main contrib non-free non-free-firmware" \
         --debian-installer false \
         --bootappend-live "boot=live components quiet splash hostname=spaghettios username=user live-config.username=user live-config.user-full-name=Spaghetti User live-config.user-default-groups=sudo" \
         --iso-application "${DISTRO} ${VERSION}" \
