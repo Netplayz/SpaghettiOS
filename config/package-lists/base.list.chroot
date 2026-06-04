@@ -17,6 +17,7 @@ shim-signed
 linux-image-amd64
 linux-headers-amd64
 live-boot
+live-config
 live-config-systemd
 systemd-sysv
 apt-transport-https

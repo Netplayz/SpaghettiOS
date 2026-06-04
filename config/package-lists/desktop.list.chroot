@@ -1,5 +1,6 @@
 # SpaghettiOS Desktop Packages
 task-gnome-desktop
+xorg
 spaghettios-paint
 spaghettios-terry
 gdm3

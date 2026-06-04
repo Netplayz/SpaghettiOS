@@ -60,7 +60,7 @@ build_iso() {
         --architectures "$ARCH" \
         --archive-areas "main contrib non-free" \
         --debian-installer false \
-        --bootappend-live "boot=live components quiet splash hostname=spaghettios" \
+        --bootappend-live "boot=live components quiet splash hostname=spaghettios username=user live-config.username=user live-config.user-full-name=Spaghetti User live-config.user-default-groups=sudo" \
         --iso-application "${DISTRO} ${VERSION}" \
         --iso-preparer "${DISTRO} Developers" \
         --iso-publisher "${DISTRO} Developers" \
